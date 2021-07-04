@@ -9,6 +9,7 @@ class BooksList extends React.Component {
         onSelectChange={this.props.onSelectChange}
         title={this.props.title}
         books={this.props.books}
+        currentBooks={this.props.currentBooks}
       />
     );
   }

@@ -27,8 +27,6 @@ class BooksApp extends React.Component {
   }
 
   onSelectHandler = (book, bookShelf) => {
-    console.log(book);
-    console.log(bookShelf);
     book.shelf = bookShelf;
     BooksAPI.update(book, bookShelf).then((res) => {
       if (bookShelf !== "none") {

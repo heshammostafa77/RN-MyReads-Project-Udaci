@@ -7,7 +7,7 @@ import "../App.css";
 class SearchBooks extends React.Component {
   state = {
     query: "",
-    result: [],
+    results: [],
   };
 
   updateQuery(query) {
@@ -15,17 +15,17 @@ class SearchBooks extends React.Component {
     if (query.length > 0) {
       BooksAPI.search(query).then((data) => {
         if (!Array.isArray(data)) {
-          this.setState({ result: [] });
+          this.setState({ results: [] });
         }
         if (data.length > 0) {
-          this.setState({ result: data });
+          this.setState({ results: data });
         }
       });
     }
   }
 
   render() {
-    const { query, result } = this.state;
+    const { query, results } = this.state;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -42,10 +42,10 @@ class SearchBooks extends React.Component {
             />
           </div>
         </div>
-        <div className="search-books-results">
+        <div className="search-books-resultss">
           <ol className="books-grid" />
           <BooksList
-            books={query !== "" ? result : []}
+            books={query !== "" ? results : []}
             onSelectChange={this.props.onSelectChange}
             currentBooks={this.props.books}
           />
