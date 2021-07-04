@@ -26,6 +26,7 @@ class SearchBooks extends React.Component {
 
   render() {
     const { query, results } = this.state;
+    const { books, onSelectChange } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -46,8 +47,8 @@ class SearchBooks extends React.Component {
           <ol className="books-grid" />
           <BooksList
             books={query !== "" ? results : []}
-            onSelectChange={this.props.onSelectChange}
-            currentBooks={this.props.books}
+            onSelectChange={onSelectChange}
+            currentBooks={books}
           />
         </div>
       </div>

@@ -4,15 +4,16 @@ import "../App.css";
 class BooksItems extends React.Component {
   render() {
     let bookShelf = "";
+    const { title, currentBooks, books } = this.props;
     return (
       <div>
         <div className="bookshelf">
-          <h2 className="bookshelf-title">{this.props.title}</h2>
+          <h2 className="bookshelf-title">{title}</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
-              {this.props.books.map((book) => {
-                if (this.props.currentBooks) {
-                  const currentBook = this.props.currentBooks.find(
+              {books.map((book) => {
+                if (currentBooks) {
+                  const currentBook = currentBooks.find(
                     (b) => b.id === book.id
                   );
                   bookShelf = currentBook ? currentBook.shelf : "none";

@@ -4,12 +4,13 @@ import "../App.css";
 
 class BooksList extends React.Component {
   render() {
+    const { onSelectChange, title, books, currentBooks } = this.props;
     return (
       <BookItems
-        onSelectChange={this.props.onSelectChange}
-        title={this.props.title}
-        books={this.props.books}
-        currentBooks={this.props.currentBooks}
+        onSelectChange={onSelectChange}
+        title={title}
+        books={books}
+        currentBooks={currentBooks}
       />
     );
   }
